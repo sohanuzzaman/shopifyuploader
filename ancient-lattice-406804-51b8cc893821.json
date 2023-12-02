@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "ancient-lattice-406804",
+  "private_key_id": "51b8cc8938219400f4af1ac831fe0588ee1d475d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDO4HUTvUOmG0wi\nZOm9ILU8gca3ro9eh8FSNgSBB5x/ndzt5ZF//O612IZ4xaRe5MguEDq7fRP7ASDT\nNqZYkz8Wld8liDksgCvgUnqWV/K5Q4yFlnfDQ0vusjmERgqds7BFM92xA08viFkq\nnPKYO9Fr7ZWTkLVRhLJ0J+ksPjAg1fDltZt3sHNQS5T8h1/HR4rEcYP7DrEDPSu1\nb2K0E+FtsQAydIwQN9B1Wbyzni/9EtOE5lA0z9W1YN0VI0tUW/fUtQOFkMvT8Dfq\n0jDKdp4uDOXS+zvS3GwFLSYytqaugVyGJCi/Y32Li3vW3VXzPWyzouMoOln4ODUw\nyAL5oPGhAgMBAAECggEAAyvl75Vu54/mK2YDpVG08mAE8itVaSJ72e0YRZTrY8an\n3+fG9fQKzs13RkiCL0g8ZcrIgIS3qf+HusuZyKRwcUHlh8REwbdkGzTFSolZOb9D\nQYfS5ZkiNvissNshoSHjkzQEpojBjbd+TAzXtT8mUNko4JHCQQuS1smgpZWwephc\nYW0cOCDGUPf30kddSTfzNlAFyvASpP8raiF/O5LsLRwmIK7lN0pKR3rwqtiIhmyS\nF40uAT3lJR3E78kdB+wFI7dg1TpGdRZ5wFZd3lHeWZF+tYSBGZbEMZeLIEh3/WZr\nbbCRtJbNbUMGylvN31C/YMcmcHEdlU4Xso/3KyoqSQKBgQDtCPT84aN/vnC6IXwg\nCaz/pHjGucLCJvha2g3sG4fwNbmN2VgagA3r6xojqrJvuxD1qgfU0QkKTGYO6Rh7\nglK6YZP5MTlb0UOu3kzBsVoX5qCmjJV2+DKkXvkLkGfBNHHp49G22+MmvGmubwNF\nEw4vaurojpffYZN4WdGSDAVL1QKBgQDfbcnOZx4WnplZBZl9GfXbWKF+WrwTe7h3\nwJ+ebc1c3UanuJRnoShLlvVJB8yysA664/J+v2dMSUdVovIeAqOvg/eLxIDl0KXZ\nfJqu2mUmpGoPxtCG1kOBsOvWZCNBcWUHVZoFJk761aQyacOiqy44ywR3WnsN9f8q\nmDbY58OwnQKBgQDFDvE9WwjmJpjo5PWgXOrqDP4rmDuF1YgbX7S7WZgF52Q/vTU1\nssfgHjA4/qwhn09WLOkd0DrHyQP/2WF1LL9CG+U9AeNBphOyyTTewma4ABAG5lFL\n+sN/S0WYi5D2WndpjvDGKMALcBAb6Ea7oj/kw+pPNFymZSSIpYNI+51bkQKBgQDZ\n2RZXpbt0mpcycX9Ctzk88aIkrRuMc6ldOfdoZe9CiI4HorUwhbXgXgQzfONdpsP1\n/aPHaaCyhRCEsygXksM+sxF+uc5kRZgwAopfypmtn8m6MEPJ9MhFf9ezZlfpy0KS\ncCiItN11PTGn5e/Wf8nFnk1wgkxRRHXTdi6kNvZbEQKBgQDYdueZCua5tJS0ond4\ngHVBhtmTNqS+5WLe0k6rutf9AbyB94f41YH6yewNiYfW3Ma3UNrRDza/a+qQyHNM\nmkGZyxKgDjnobjfZcwcIN8+K/yq6lUx2ZTfNtpSqL9IaGFF2F6iw4pzVRq6ejUpz\nf4KqRuazDDm/fv/vJkzDNZVMrw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "python-auto-uploader@ancient-lattice-406804.iam.gserviceaccount.com",
+  "client_id": "100900034240394287120",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/python-auto-uploader%40ancient-lattice-406804.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
