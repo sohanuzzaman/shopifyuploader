@@ -43,11 +43,14 @@ product_data = {
     }
 }
 
-# Make a POST request to create a new product
-response = requests.post(url, headers=headers, data=json.dumps(product_data))
 
-# Check the response
-if response.status_code == 201:
-    print("Product created successfully.")
-else:
-    print(f"Failed to create product. Status Code: {response.status_code}, Response: {response.text}")
+def product_uploader():
+    # Make a POST request to create a new product
+    response = requests.post(url, headers=headers, data=json.dumps(product_data))
+
+    # Check the response
+    if response.status_code == 201:
+        print("Product created successfully.")
+        return response
+    else:
+        print(f"Failed to create product. Status Code: {response.status_code}, Response: {response.text}")

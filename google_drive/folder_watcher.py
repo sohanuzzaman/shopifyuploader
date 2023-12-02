@@ -1,7 +1,12 @@
 import time
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from drive_utils import create_drive_service
-from get_images import list_images_in_folder
+from images.get_images import list_images_in_folder
 from create_sheet import create_sheet_in_folder, append_to_sheet
+from upload.serilize_data import get_product_details
+from notification.email_sender import send_email
 
 
 # Example usage
@@ -22,6 +27,14 @@ def find_2nd_degree_subfolders(service, parent_folder_id):
         second_degree_folders.extend(subfolders)
 
     return second_degree_folders
+
+def update_folder_name(service, folder_id, new_name):
+    # Update the folder metadata with the new name
+    folder_metadata = {'name': new_name}
+
+    # Update the folder on Google Drive
+    service.files().update(fileId=folder_id, body=folder_metadata).execute()
+
 
 def look_for_new_folders():
     drive_service = create_drive_service()
@@ -44,15 +57,19 @@ def look_for_new_folders():
             data_to_append = []
             for image in images:
                 # Assuming image is a tuple with the first element as 'url' and the second as 'public_id'
-                url, public_id = image  # Unpack the tuple
+                url, public_id = image 
                 data_to_append.append([url, public_id])
 
             # Append data to the sheet
             append_to_sheet(spreadsheet_id=product_detail_sheet, data=data_to_append)
+            upload_to_shopify = get_product_details(product_detail_sheet, images)
+            if upload_to_shopify.status_code == 201:
+                # Prepend "(Uploaded)" to the folder name
+                updated_name = "(Uploaded) " + folder['name']
+                update_folder_name(drive_service, folder['id'], updated_name)
 
-
-
-        time.sleep(1000)  # Wait for approximately 12 minutes before checking again
+        send_email()
+        time.sleep(3 * 3600)  # Sleep for 3 hours
 
 look_for_new_folders()
 

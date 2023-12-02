@@ -2,7 +2,37 @@ from drive_utils import create_drive_service, create_sheets_service
 # Create the Google Sheets service instance
 sheets_service = create_sheets_service()
 
+def check_existing_sheet(folder_id, sheet_title="Product Info"):
+    """
+    Check if a Google Sheet with a given title exists in a specified folder.
+
+    :param folder_id: The ID of the folder to search in.
+    :param sheet_title: The title of the sheet to search for.
+    :return: The ID of the existing sheet if found, otherwise None.
+    """
+    drive_service = create_drive_service()
+
+    # Search for the file in the specified folder
+    query = f"name = '{sheet_title}' and '{folder_id}' in parents and mimeType = 'application/vnd.google-apps.spreadsheet'"
+    response = drive_service.files().list(q=query, spaces='drive').execute()
+
+    for file in response.get('files', []):
+        # Return the first matching file's ID
+        return file.get('id')
+    return None
+
 def create_sheet_in_folder(folder_id, sheet_title="Product Info"):
+    """
+    Create or find a Google Sheet in a specified folder with a given title.
+
+    :param folder_id: The ID of the folder where the sheet will be placed.
+    :param sheet_title: The title of the Google Sheet. Default is 'Product Info'.
+    :return: The ID of the found or newly created sheet.
+    """
+    existing_sheet_id = check_existing_sheet(folder_id, sheet_title)
+    if existing_sheet_id:
+        print(f"Sheet '{sheet_title}' already exists with ID: {existing_sheet_id}")
+        return existing_sheet_id
     """
     Copy a specific template Google Sheet to a specified folder with a given title.
 

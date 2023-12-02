@@ -1,4 +1,4 @@
-from crop import smart_crop_image
+from images.crop import smart_crop_image
 import os
 
 def list_images_in_folder(service, folder_id):
