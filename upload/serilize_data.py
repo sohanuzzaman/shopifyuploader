@@ -1,6 +1,10 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from google_drive.read_product_details import format_data_from_sheet
 from images.delete_images import delete_images_from_cloudinary
-from shopify_upload import product_uploader
+from .shopify_upload import product_uploader
 
 def get_product_details(sheet_id, images):
     """
@@ -26,10 +30,11 @@ def get_product_details(sheet_id, images):
         raise KeyError("The 'product' key is missing in the product details.")
 
     # Upload the product to Shopify
+    print(product_details)
     shopify_response = product_uploader(product_details)
 
     # If the product is added successfully, delete the images from Cloudinary
-    if shopify_response:  # Assuming the response indicates success
+    if shopify_response.status_code == 201:  # Assuming the response indicates success
         public_ids = [image[1] for image in images]
         delete_images_from_cloudinary(public_ids)
 

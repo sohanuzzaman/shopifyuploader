@@ -24,33 +24,37 @@ headers = {
     "X-Shopify-Access-Token": ACCESS_TOKEN
 }
 
-# Product data without variants
-product_data = {
-    "product": {
-        "title": "test product 4",
-        "body_html": "<strong>Great product!</strong>",
-        "vendor": "Your Vendor Name",
-        "product_type": "Your Product Type",
-        "tags": ["Andara Crystal", "Andara from Egypt"],
-        "variants": [{
-            "price": "100.00",
-            "grams": 100
-        }],
-        "images": [
-            {"src": "https://res.cloudinary.com/dyp7u4bv0/image/upload/v1701440431/c2335b48-f1cf-419b-a7ce-29c0828ec6d3.jpg"},
-            {"src": "https://res.cloudinary.com/demo/image/upload/c_crop,h_200,w_200/docs/models.jpg"}
-        ]
+def product_uploader(product_data):
+    # Extract the product details from the provided data
+    product_info = product_data['product']
+
+    # Prepare the product payload for the Shopify API
+    product_payload = {
+        "product": {
+            "title": product_info["title"],
+            "body_html": product_info["body_html"],
+            "vendor": product_info["vendor"],
+            "product_type": product_info["product_type"],
+            "tags": product_info["tags"],
+            "variants": product_info["variants"],
+            "images": product_info["images"],
+            "metafields": product_info["metafields"],
+            "status": "draft"  # Setting the product status to draft
+        }
     }
-}
 
+    # Making a POST request to Shopify API
+    response = requests.post(url, headers=headers, json=product_payload)
 
-def product_uploader():
-    # Make a POST request to create a new product
-    response = requests.post(url, headers=headers, data=json.dumps(product_data))
-
-    # Check the response
     if response.status_code == 201:
-        print("Product created successfully.")
+        # Successfully created the product
+        print(response)
         return response
     else:
-        print(f"Failed to create product. Status Code: {response.status_code}, Response: {response.text}")
+        # Error occurred
+        return {"error": response.text}
+
+# Usage with dynamic product data
+# dynamic_product_data = { ... }  # This should be provided by another part of your code
+# response = product_uploader(dynamic_product_data)
+# print(response)
