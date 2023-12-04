@@ -73,7 +73,7 @@ def look_for_new_folders():
                 public_ids_to_delete = [item[1] for item in data_to_append]
                 delete_images_from_cloudinary(public_ids_to_delete)
                 
-        # send_email()
+        send_email()
         time.sleep(3 * 3600)  # Sleep for 3 hours
 
 look_for_new_folders()
