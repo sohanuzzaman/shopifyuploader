@@ -4,6 +4,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from drive_utils import create_drive_service
 from images.get_images import list_images_in_folder
+from images.delete_images import delete_images_from_cloudinary
 from create_sheet import create_sheet_in_folder, append_to_sheet
 from upload.serilize_data import get_product_details
 from notification.email_sender import send_email
@@ -68,7 +69,11 @@ def look_for_new_folders():
                 updated_name = "(Uploaded) " + folder['name']
                 update_folder_name(drive_service, folder['id'], updated_name)
 
-        send_email()
+                # Extract public IDs from data_to_append for deletion
+                public_ids_to_delete = [item[1] for item in data_to_append]
+                delete_images_from_cloudinary(public_ids_to_delete)
+                
+        # send_email()
         time.sleep(3 * 3600)  # Sleep for 3 hours
 
 look_for_new_folders()
