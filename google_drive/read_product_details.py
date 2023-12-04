@@ -78,6 +78,7 @@ def create_shopify_product_from_unstructured_data(sheet_data):
     11. Use emojis to enhance engagement, particularly in the introduction and conclusion.
     12. Set the product status as 'draft'.
     13. The product description should be 300 - 500 words long.
+    14. Know the product type from the google sheet data. It's Either 
 
     Incorporate relevant keywords for SEO naturally. Metafield: 'ORIGIN' with key 'country_of_origin' and namespace 'custom'.
     """
