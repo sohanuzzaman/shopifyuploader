@@ -20,6 +20,7 @@ def delete_images_from_cloudinary(public_ids):
     # Delete images
     try:
         response = cloudinary.api.delete_resources(public_ids)
+        print(response)
         return response
     except Exception as e:
         return str(e)

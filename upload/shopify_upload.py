@@ -29,19 +29,7 @@ def product_uploader(product_data):
     product_info = product_data['product']
 
     # Prepare the product payload for the Shopify API
-    product_payload = {
-        "product": {
-            "title": product_info["title"],
-            "body_html": product_info["body_html"],
-            "vendor": product_info["vendor"],
-            "product_type": product_info["product_type"],
-            "tags": product_info["tags"],
-            "variants": product_info["variants"],
-            "images": product_info["images"],
-            "metafields": product_info["metafields"],
-            "status": "draft"  # Setting the product status to draft
-        }
-    }
+    product_payload = product_data
 
     # Making a POST request to Shopify API
     response = requests.post(url, headers=headers, json=product_payload)
