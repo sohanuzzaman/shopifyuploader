@@ -51,6 +51,7 @@ def look_for_new_folders():
                 print(f"Folder to process: {folder['name']} with ID: {folder['id']}")
 
         for folder in folders_to_process:
+            time.sleep(900)
             product_detail_sheet = create_sheet_in_folder(folder['id'])
             images = list_images_in_folder(drive_service, folder['id'])
             
