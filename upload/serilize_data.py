@@ -34,9 +34,9 @@ def get_product_details(sheet_id, images):
     shopify_response = product_uploader(product_details)
 
     # If the product is added successfully, delete the images from Cloudinary
-    if shopify_response.status_code == 201:  # Assuming the response indicates success
-        public_ids = [image[1] for image in images]
-        delete_images_from_cloudinary(public_ids)
+    # if shopify_response.status_code == 201:  # Assuming the response indicates success
+    #     public_ids = [image[1] for image in images]
+    #     delete_images_from_cloudinary(public_ids)
 
     # Return the response from Shopify upload
     return shopify_response

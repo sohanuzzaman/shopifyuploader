@@ -88,8 +88,9 @@ def create_shopify_product_from_unstructured_data(sheet_data):
     Additional Instructions:
     - The product description should be formatted in HTML for visual appeal and clarity.
     - Description word count can't be less than required
-    - Provided examples are just suggestions, be creative
+    - Don't be limited to provided examples, be creative
     - Set the product status to 'draft'.
+    - Make sure, it's available in all the sales channels
     - Add a Metafield 'ORIGIN' with key 'country_of_origin' and namespace 'custom'.
     """
 
@@ -97,7 +98,7 @@ def create_shopify_product_from_unstructured_data(sheet_data):
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo-1106",
         messages=[
-            {"role": "system", "content": "You are a marketing genius specialized in Etsy product marketing. Your responses should be formatted as JSON objects."},
+            {"role": "system", "content": "You are a creative copyrighter. Your responses should be formatted as JSON objects."},
             {"role": "user", "content": prompt}
         ]
     )
